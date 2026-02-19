@@ -12,6 +12,8 @@ dist
 dist-ssr
 *.local
 
+!dist/.nojekyll
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json

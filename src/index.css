@@ -1,0 +1,127 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Industrial Steel Theme - EAF Pareto Optimizer */
+
+@layer base {
+  :root {
+    /* Steel/Metallic Base */
+    --background: 220 20% 12%;
+    --foreground: 210 20% 92%;
+
+    /* Dark steel cards */
+    --card: 220 18% 16%;
+    --card-foreground: 210 20% 92%;
+
+    --popover: 220 18% 16%;
+    --popover-foreground: 210 20% 92%;
+
+    /* Molten orange/amber accent */
+    --primary: 30 90% 55%;
+    --primary-foreground: 220 20% 10%;
+
+    /* Steel gray secondary */
+    --secondary: 220 15% 22%;
+    --secondary-foreground: 210 20% 85%;
+
+    --muted: 220 15% 20%;
+    --muted-foreground: 215 15% 55%;
+
+    /* Amber accent */
+    --accent: 35 85% 50%;
+    --accent-foreground: 220 20% 10%;
+
+    --destructive: 0 70% 50%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 220 15% 25%;
+    --input: 220 15% 25%;
+    --ring: 30 90% 55%;
+
+    --radius: 0.5rem;
+
+    /* Chart colors - industrial palette */
+    --chart-1: 30 90% 55%;
+    --chart-2: 200 70% 50%;
+    --chart-3: 150 60% 45%;
+    --chart-4: 280 60% 55%;
+    --chart-5: 350 70% 55%;
+
+    /* Custom industrial colors */
+    --molten: 25 95% 50%;
+    --steel-dark: 220 20% 8%;
+    --steel-light: 220 15% 28%;
+    --success: 150 60% 45%;
+    --warning: 45 90% 55%;
+
+    /* Sidebar */
+    --sidebar-background: 220 20% 10%;
+    --sidebar-foreground: 210 20% 85%;
+    --sidebar-primary: 30 90% 55%;
+    --sidebar-primary-foreground: 220 20% 10%;
+    --sidebar-accent: 220 15% 18%;
+    --sidebar-accent-foreground: 210 20% 85%;
+    --sidebar-border: 220 15% 22%;
+    --sidebar-ring: 30 90% 55%;
+  }
+
+  .dark {
+    /* Same as root - dashboard is always dark industrial theme */
+    --background: 220 20% 12%;
+    --foreground: 210 20% 92%;
+    --card: 220 18% 16%;
+    --card-foreground: 210 20% 92%;
+    --popover: 220 18% 16%;
+    --popover-foreground: 210 20% 92%;
+    --primary: 30 90% 55%;
+    --primary-foreground: 220 20% 10%;
+    --secondary: 220 15% 22%;
+    --secondary-foreground: 210 20% 85%;
+    --muted: 220 15% 20%;
+    --muted-foreground: 215 15% 55%;
+    --accent: 35 85% 50%;
+    --accent-foreground: 220 20% 10%;
+    --destructive: 0 70% 50%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 220 15% 25%;
+    --input: 220 15% 25%;
+    --ring: 30 90% 55%;
+    --sidebar-background: 220 20% 10%;
+    --sidebar-foreground: 210 20% 85%;
+    --sidebar-primary: 30 90% 55%;
+    --sidebar-primary-foreground: 220 20% 10%;
+    --sidebar-accent: 220 15% 18%;
+    --sidebar-accent-foreground: 210 20% 85%;
+    --sidebar-border: 220 15% 22%;
+    --sidebar-ring: 30 90% 55%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+}
+
+/* Industrial texture overlay */
+.industrial-texture {
+  background-image: 
+    linear-gradient(135deg, hsl(var(--steel-dark)) 0%, hsl(var(--background)) 50%, hsl(var(--steel-light) / 0.3) 100%);
+}
+
+/* Molten glow effect */
+.molten-glow {
+  box-shadow: 0 0 20px hsl(var(--molten) / 0.3), 0 0 40px hsl(var(--molten) / 0.1);
+}
+
+/* Steel card styling */
+.steel-card {
+  background: linear-gradient(145deg, hsl(var(--card)) 0%, hsl(220 18% 14%) 100%);
+  border: 1px solid hsl(var(--border));
+}

@@ -5,7 +5,7 @@ import { componentTagger } from "lovable-tagger";
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
-  base: "/eaf-sparkle-dash/",
+  base: mode === 'production' ? "/eaf-sparkle-dash/" : "/",
   server: {
     host: "::",
     port: 8080,

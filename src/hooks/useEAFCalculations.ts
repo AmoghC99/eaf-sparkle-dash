@@ -277,12 +277,21 @@ export const useScenarioCost = (
     if (!scenario || !materialPrices) return 0;
     
     const materials = Object.entries(scenario.mix).filter(([_, val]) => val > 0);
-    const totalCost = materials.reduce((sum, [material]) => {
-      return sum + (materialPrices[material]?.totalCost || 0);
-    }, 0);
-    const totalTonnage = materials.reduce((sum, [material]) => {
-      return sum + (materialPrices[material]?.totalTonnage || 0);
-    }, 0);
-    return totalTonnage > 0 ? (totalCost / totalTonnage) * 1000 : 0;
+    
+    // Calculate weighted average price per ton
+    let totalWeightedCost = 0;
+    let totalWeight = 0;
+    
+    materials.forEach(([material, weight]) => {
+      const priceData = materialPrices[material];
+      if (priceData && priceData.totalTonnage > 0) {
+        // Unit price = total cost / total tonnage (in £/ton, already converted)
+        const unitPrice = priceData.pricePerTon;
+        totalWeightedCost += unitPrice * weight;
+        totalWeight += weight;
+      }
+    });
+    
+    return totalWeight > 0 ? totalWeightedCost / totalWeight : 0;
   }, [scenario, materialPrices]);
 };
